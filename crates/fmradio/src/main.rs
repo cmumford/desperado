@@ -739,6 +739,10 @@ async fn main() -> desperado::Result<()> {
         let _ = handle.join();
     }
 
+    if let Err(e) = iq_source.stop().await {
+        eprintln!("Unable to stop source: {e}");
+    }
+
     run_result
 }
 
